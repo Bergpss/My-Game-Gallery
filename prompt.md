@@ -17,6 +17,44 @@ API示例：在 NeoDB-API-example.md 文件中
 - 首次访问时应直接从 API 取数据
 - 游戏数量不到50个，你来判断是否需要处理分页
 
+### 分页处理具体方案
+```
+方案 1：立即实现完整分页支持（推荐）
+
+  优点：
+  - 一次性解决未来问题，无需后续重构
+  - 代码更健壮，适应数据增长
+  - 性能更好（即使现在数据少，也为未来优化）
+
+  实现方式：
+  // 递归获取所有页面的数据
+  async function fetchAllGames(shelfType: string) {
+    let allGames = [];
+    let currentPage = 1;
+    let totalPages = 1;
+
+    while (currentPage <= totalPages) {
+      const response = await fetch(
+        `https://neodb.social/api/me/shelf/${shelfType}?category=game&page=${currentPage}`
+      );
+      const data = await response.json();
+
+      allGames = [...allGames, ...data.data];
+      totalPages = data.pages;
+      currentPage++;
+    }
+
+    return allGames;
+  }
+
+  理由：
+  1. API 已经提供了完整的分页信息（pages 和 count），实现成本不高
+  2. 避免未来的技术债务：当游戏数量增加到 100+ 时，你可能会忘记这个问题
+  3. 代码质量更高：一次性做对，符合工程最佳实践
+  4. 性能考虑：虽然现在数据少，但良好的架构为未来优化打基础
+
+```
+
 ## 游戏分类展示
 - 四种状态展示方式：分标签页展示
 
