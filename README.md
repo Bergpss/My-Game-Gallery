@@ -162,4 +162,4 @@ MIT
 
 - 数据来源：[NeoDB](https://neodb.social/)
 - UI 组件：[shadcn/ui](https://ui.shadcn.com/)
-- 图标：[Lucide](https://lucide.dev/)
+- 图标：[iconfont](https://www.iconfont.cn/)
