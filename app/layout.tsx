@@ -6,8 +6,13 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My Game Gallery - 我的游戏收藏",
+  title: "Berg Game Gallery - 我的游戏收藏",
   description: "展示当前在玩、想要玩、已玩过、不玩了的游戏",
+  icons: {
+    icon: "/ps5-controller-gamepad-seeklogo.svg",
+    shortcut: "/ps5-controller-gamepad-seeklogo.svg",
+    apple: "/ps5-controller-gamepad-seeklogo.svg",
+  },
 };
 
 export default function RootLayout({
