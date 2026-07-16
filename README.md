@@ -2,6 +2,8 @@
 
 一个现代化的游戏收藏展示网站，使用 NeoDB API 展示您的游戏收藏。
 
+线上地址：[game.guoyibo.top](https://game.guoyibo.top)（由 Vercel 在 `main` 分支更新后自动部署）
+
 ## 功能特性
 
 - 📊 **四种游戏状态**：想玩、在玩、已玩过、不玩了
